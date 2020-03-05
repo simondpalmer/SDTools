@@ -1,4 +1,5 @@
 layout:
   - Sum
+  - CBC
   - Analyse
   - Inspect
