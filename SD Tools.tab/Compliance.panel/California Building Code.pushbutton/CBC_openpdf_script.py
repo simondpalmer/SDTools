@@ -1,2 +1,2 @@
 import webbrowser as wb
-wb.open_new(r'M:\Codes\2019 CBC\2019_california_building_volumes_1_and_2_combo.pdf')
+wb.open_new(r'X:\_GUIDELINES\CALIFORNIA BUILDING CODE\CALIFORNIA_BUILDING_CODE_VOL_1&2.pdf')
