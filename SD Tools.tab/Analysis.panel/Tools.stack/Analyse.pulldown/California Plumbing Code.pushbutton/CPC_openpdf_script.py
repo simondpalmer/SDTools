@@ -1,2 +1,0 @@
-import webbrowser as wb
-wb.open_new(r'X:\_GUIDELINES\CALIFORNIA PLUMBING CODE\CALIFORNIA_PLUMBING_CODE.pdf')
