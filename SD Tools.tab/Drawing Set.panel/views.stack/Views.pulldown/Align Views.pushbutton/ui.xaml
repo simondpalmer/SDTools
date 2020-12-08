@@ -1,0 +1,31 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Align Multiple Views"
+        Width="350" ResizeMode="NoResize" Height="655.898">
+    <Grid VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="230*" />
+            <RowDefinition Height="60*" />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="15,10" Grid.Row="0">
+            <Label Grid.Row="1" Content="Select view to align to:" Margin="0,0,0,0" />
+            <ComboBox x:Name="cmbPrimary" Grid.Row="1" Margin="0,1,0,15" VerticalAlignment="Top" SelectedIndex="0"/>
+        </StackPanel>
+        <Grid Grid.Row="1" Margin="15,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Content="Select views to align:" Grid.Row="0" Margin="0,0,0,0" />
+            <ListBox x:Name="lbxViews" ItemsSource="{Binding lbxViews}" Grid.Row="1" SelectionMode="Multiple" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        </Grid>
+        <StackPanel Grid.Row="2" Margin="15,0">
+            <Label Content="Select alignment point:" Grid.Row="2" Margin="0,0,0,0" />
+            <ComboBox x:Name="cmbAlignment" Grid.Row="2" SelectedValue="Center"/>
+        </StackPanel>    
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="15,80,15,10">
+            <Button Click="alignviews"  MaxHeight="35" MinWidth="95">OK</Button>
+        </StackPanel>
+    </Grid>
+</Window>
