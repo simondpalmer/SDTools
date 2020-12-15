@@ -1,12 +1,8 @@
-"""Report the username of whoever reloaded the keynotes last."""
+"""Figure out who made specific changes in the model."""
 
 from pyrevit import revit, DB, UI
 from pyrevit import forms
 from pyrevit import script
-
-
-__title__ = 'Who did that??'
-__authors__ = ['{{author}}', 'Frederic Beaupere']
 
 
 def who_reloaded_keynotes():

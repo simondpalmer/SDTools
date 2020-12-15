@@ -44,9 +44,6 @@ from pyrevit import script
 from pyrevit.coreutils import yaml
 
 
-__author__ = "{{author}}"
-
-
 logger = script.get_logger()
 output = script.get_output()
 
@@ -183,11 +180,16 @@ def set_fparam_value(pvcfg, fparam):
         # resolve FamilyType value and get the symbol id
         fsym_id = get_symbol_id(pvcfg.value)
         fm.Set(fparam, fsym_id)
+
     elif fparam.StorageType == DB.StorageType.String:
         fm.Set(fparam, pvcfg.value)
-    elif fparam.StorageType == DB.StorageType.Integer \
-            and fparam.Definition.ParameterType.YesNo:
-        fm.Set(fparam, 1 if pvcfg.value.lower() == 'true' else 0)
+
+    elif fparam.StorageType == DB.StorageType.Integer:
+        if fparam.Definition.ParameterType == DB.ParameterType.YesNo:
+            fm.Set(fparam, 1 if pvcfg.value.lower() == 'true' else 0)
+        else:
+            fm.Set(fparam, int(pvcfg.value))
+
     else:
         fm.SetValueString(fparam, pvcfg.value)
 
@@ -250,7 +252,7 @@ def ensure_param(param_name, param_opts):
                     logger.error('Failed to set formula on: %s | %s',
                                  pcfg.name, formula_ex)
             # or the default value if any
-            elif pcfg.default:
+            elif pcfg.default and not fparam.IsReporting:
                 try:
                     set_fparam_value(
                         ParamValueConfig(name=pcfg.name, value=pcfg.default),
@@ -310,6 +312,8 @@ def ensure_types(fconfig):
     type_cfgs = fconfig.get(TYPES_SECTION_NAME, None)
     if type_cfgs:
         for tname, topts in type_cfgs.items():
+            # clean the name of extra spaces
+            tname = tname.strip()
             logger.debug('ensuring type: %s', tname)
             tcfg = get_type_config(tname, topts)
             if tcfg:
@@ -325,7 +329,13 @@ def ensure_types(fconfig):
                                 )
                         logger.debug('setting value for: %s', pvcfg.name)
                         if fparam:
-                            set_fparam_value(pvcfg, fparam)
+                            if not fparam.IsReporting:
+                                set_fparam_value(pvcfg, fparam)
+                            else:
+                                logger.warning(
+                                    'can not set value for reporting '
+                                    'parameter: %s', pvcfg.name
+                                    )
                         else:
                             logger.warning(
                                 'can not find parameter: %s', pvcfg.name
