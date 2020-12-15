@@ -1,4 +1,7 @@
 layout:
+  - Add Views to Sheets
+  - Align Views
+  - -----
   - Open Referencing Sheet
   - Find Referring Views
   - -----
@@ -14,6 +17,5 @@ layout:
   - Toggle All Grid Bubbles in Current View
   - Match Title on Sheet in Open Docs
   - Create Parallel Section
-  - Add Views to Sheets
   - Remove Empty Tags
   - Remove Underlay From Selected Views
