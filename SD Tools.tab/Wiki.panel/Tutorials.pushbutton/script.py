@@ -1,2 +1,2 @@
 import webbrowser as wb
-wb.open_new(r'https://web.microsoftstream.com/channel/5cdf8690-0e40-42c6-8058-2bc3b675600e')
+wb.open_new(r'https://web.microsoftstream.com/channel/8bb42a84-a558-4c3f-98b7-d65a52ad2f00')
