@@ -53,7 +53,7 @@ viewPorts = list(DB.FilteredElementCollector(doc).OfClass(Viewport))
 for vp in viewPorts:
     sheet = doc.GetElement(vp.SheetId)
     view = doc.GetElement(vp.ViewId)
-    viewPortList.append([sheet.SheetNumber, view.ViewName, vp])
+    viewPortList.append([sheet.SheetNumber, view.Name, vp])
 
 lbxViewsSorted = sorted(viewPortList, key=lambda x: x[0])
 
