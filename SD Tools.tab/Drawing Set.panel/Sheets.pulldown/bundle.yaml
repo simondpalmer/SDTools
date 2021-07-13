@@ -1,6 +1,9 @@
+title:
+  en_us: Sheets
+  fr_fr: Feuilles
 layout:
-  - Copy Selected Viewports To Selected Sheets
-  - Move Selected Viewports To Selected Sheet
+  - Copy Views
+  - Move Views
   - Pin All Viewports
   - Reorder Selected Viewport
   - -----

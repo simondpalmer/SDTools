@@ -1,7 +1,7 @@
+title:
+  en_us: Views
+  fr_fr: Vues
 layout:
-  - Add Views to Sheets
-  - Align Views
-  - -----
   - Open Referencing Sheet
   - Find Referring Views
   - -----
@@ -9,6 +9,7 @@ layout:
   - Query View Sheet Placement
   - Query View Referencing
   - -----
+  - Close Views
   - Rename Selected Views
   - Duplicate Selected Views
   - Create Print Set From Selected Views
@@ -17,5 +18,7 @@ layout:
   - Toggle All Grid Bubbles in Current View
   - Match Title on Sheet in Open Docs
   - Create Parallel Section
+  - Add Views to Sheets
+  - Align Views
   - Remove Empty Tags
   - Remove Underlay From Selected Views
