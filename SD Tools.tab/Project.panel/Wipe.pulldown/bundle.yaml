@@ -8,4 +8,5 @@ layout:
   - Wipe SubCategories
   - Wipe Unused Filters
   - Wipe Unused View Templates
+  - Wipe Hidden Filled Regions
   - Wipe Empty Elevation Tags
